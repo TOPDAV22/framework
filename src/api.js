@@ -9,8 +9,8 @@ instance.interceptors.request.use(function (config) {
 
     console.log('my token1', token)
    
-    // config.headers.common['Authorization'] = `token ${token}`;
-    config.headers['Authorization'] = `token ${token}`;
+    config.headers.common['Authorization'] = `token ${token}`;
+    
 
     config.headers['Accept'] = 'application/json'
     config.headers['Content-Type']='application/json'

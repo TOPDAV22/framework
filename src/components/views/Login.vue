@@ -19,9 +19,9 @@
 
 
 <script>
-import axios from 'axios';
-// import instance from "../../api";
-// import axios from "axios";
+// import axios from 'axios';
+import instance from "../../api";
+
 
 export default {
   name: "Login",
@@ -32,39 +32,38 @@ export default {
       password: "",
     };
   },
-  // methods: {
-  //    async Handlelogin() {
-  // const response = await instance.post('login', {
-  //   username: this.username,
-  //   password: this.password
-  // })
-  // const response = await axios.post("login", {
-  //   username: this.username,
-  //   password: this.password
-  // })
-
-  //  console.log('my data ',response)
-  //       localStorage.setItem('token', response.data.token);
-  //       this.$router.push('/Home')
   methods: {
-    async Handlelogin() {
-      const FormData = {
-        username: this.username,
-        password: this.password,
-      };
-await axios
-       .post("login/", FormData)
-         .then((response) => {
-           console.log(response)
-           const token = response.data.token
-           axios.defaults.headers.common['Authorization']= 'Token' +  token
-           localStorage.setItem('token', token)
+     async Handlelogin() {
+  const response = await instance.post('login/', {
+    username: this.username,
+    password: this.password
+  })
+
+   console.log('my data ',response)
+        localStorage.setItem('token', response.data.token);
+        this.$router.push('/Home')
+
+
+
+//   methods: {
+//     async Handlelogin() {
+//       const FormData = {
+//         username: this.username,
+//         password: this.password,
+//       };
+// await axios
+//        .post("login/", FormData)
+//          .then((response) => {
+//            console.log(response)
+//            const token = response.data.token
+//            axios.defaults.headers.common['Authorization']= 'Token' +  token
+//            localStorage.setItem('token', token)
             
             
-        })
-        .catch(error =>{
-          console.log(error)
-        })
+//         })
+//         .catch(error =>{
+//           console.log(error)
+        // })
 
 
 
