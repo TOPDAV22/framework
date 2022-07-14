@@ -4,15 +4,18 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 
-import axios from 'axios'
+// import instance from '../../api'
+// import axios from 'axios'
 export default {
   name: 'Home',
   components: {
   },
 
   async created(){
-    const response = await axios.get('/article_list');
+    const response = await axios.get('product');
+    // const response = await axios.get("product")
  console.log(response)
   }
  

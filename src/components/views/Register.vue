@@ -2,7 +2,7 @@
   <div class="register">
       <div>
           <form @submit.prevent="handlesubmit" >
-            <div>
+            <!-- <div>
               <label for="username">Username:</label>
               <input type="text" name="username" v-model="username">
             </div>
@@ -13,7 +13,7 @@
             <div>
               <label for="last_name">last name:</label>
               <input type="text" name="last_name" v-model="last_name">
-            </div>
+            </div> -->
             <div>
               <label for="email">email:</label>
               <input type="text" name="email" v-model="email">
@@ -37,9 +37,6 @@ export default {
   components: {},
   data() {
     return {
-     username:'',
-     first_name:'',
-     last_name:'',
      email:'',
      password:''
 
@@ -48,9 +45,7 @@ export default {
   methods: {
     
    async handlesubmit() {
-      await axios.post('register',  { username:this.username,
-     first_name:this.first_name,
-     last_name:this.last_name,
+      await axios.post('api/user_accounts/register/',  { username:this.username,
      email: this.email,
      password:this.password
       });
